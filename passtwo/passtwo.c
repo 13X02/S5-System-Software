@@ -3,6 +3,7 @@
 #include <stdlib.h>
 int main()
 {
+    
     char a[10], ad[10], label[10], opcode[10], operand[10], mnemonic[10], symbol[10];
     int i, address, code, add, len, actual_len;
     FILE *fp1, *fp2, *fp3, *fp4;
@@ -63,6 +64,7 @@ int main()
         }
         fscanf(fp3, "%d%s%s%s", &address, label, opcode, operand);
     }
+    
     fprintf(fp1, "%d\t%s\t%s\t%s\n", address, label, opcode, operand);
     printf("Finished");
     fclose(fp1);
@@ -70,4 +72,6 @@ int main()
     fclose(fp3);
     fclose(fp4);
     return 0;
+
+
 }
