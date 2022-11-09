@@ -1,69 +1,77 @@
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-int main(){
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main()
+{
     FILE *fp1, *fp2, *fp3, *fp4;
 
-    fp1 = fopen("input.dat","r");
-    fp2 = fopen("symptab.dat","w");
-    fp3 = fopen("out.dat","w");
-    fp4 = fopen("optab.dat","r");
-    char opcode[10],operand[10],label[10],code[10];
+    fp1 = fopen("input.dat", "r");
+    fp2 = fopen("symptab.dat", "w");
+    fp3 = fopen("out.dat", "w");
+    fp4 = fopen("optab.dat", "r");
+    char opcode[10], operand[10], label[10], code[10];
 
-    fscanf(fp1,"%s%s%s",label,opcode,operand);
-    int start,locctr,length;
-    if (strcmp(opcode,"START")==0)
+    fscanf(fp1, "%s%s%s", label, opcode, operand);
+    int start, locctr, length;
+    if (strcmp(opcode, "START") == 0)
     {
         start = atoi(operand);
         locctr = start;
-        fprintf(fp3,"\t%s\t%s\t%s\n",label,opcode,operand);
-        fscanf(fp1,"%s%s%s",label,opcode,operand);
-
-    }else{
+        fprintf(fp3, "\t%s\t%s\t%s\n", label, opcode, operand);
+        fscanf(fp1, "%s%s%s", label, opcode, operand);
+    }
+    else
+    {
         locctr = 0;
     }
-    while (strcmp(opcode,"END")!=0)
+    while (strcmp(opcode, "END") != 0)
     {
-        fprintf(fp3,"%d\t",locctr);
-        if (strcmp(label,"**")!=0)
+        fprintf(fp3, "%d\t", locctr);
+        if (strcmp(label, "**") != 0)
         {
-            fprintf(fp2,"%s\t%d\n",label,locctr);
+            fprintf(fp2, "%s\t%d\n", label, locctr);
         }
         rewind(fp4);
-        fscanf(fp4,"%s",code);
-        while (strcmp(opcode,"END")!=0)
+        fscanf(fp4, "%s", code);
+        // checking for opcode
+        while (strcmp(code, "END") != 0)
         {
-            if (strcmp(opcode,code))
+            if (!strcmp(opcode, code))
             {
                 locctr += 3;
                 break;
             }
-            fscanf(fp4,"%s",code);
-            
+            fscanf(fp4, "%s", code);
         }
-        if (strcmp(opcode,"WORD")==0)
+        // opcode not matched means opcode is assembler directive
+
+        if (strcmp(opcode, "WORD") == 0)
         {
             locctr += 3;
-        }else if(strcmp(opcode,"RESW")==0){
-            locctr += 3*(atoi(operand));
-        }else if (strcmp(opcode,"RESB")==0){
+        }
+        else if (strcmp(opcode, "RESW") == 0)
+        {
+            locctr += 3 * (atoi(operand));
+        }
+        else if (strcmp(opcode, "RESB") == 0)
+        {
             locctr += atoi(operand);
-        }else if(strcmp(opcode,"BYTE")==0){
+        }
+        else if (strcmp(opcode, "BYTE") == 0)
+        {
             ++locctr;
-        } 
-        fprintf(fp3,"%s\t%s\t%s\n",label,opcode,operand);
-        fscanf(fp1,"%s%s%s",label,opcode,operand);
+        }
+        fprintf(fp3, "%s\t%s\t%s\n", label, opcode, operand);
+        fscanf(fp1, "%s%s%s", label, opcode, operand);
     }
-    
 
-        fprintf(fp3,"%s\t%s\t%s\n",label,opcode,operand);
-        length = locctr - start;
-        printf("The length of program is %d",length);
-        fclose(fp1);
-        fclose(fp2);
-        fclose(fp3);
-        fclose(fp4);
-         
+    fprintf(fp3, "%s\t%s\t%s\n", label, opcode, operand);
+    length = locctr - start;
+    printf("The length of program is %d", length);
+    fclose(fp1);
+    fclose(fp2);
+    fclose(fp3);
+    fclose(fp4);
 
     return 0;
 }
