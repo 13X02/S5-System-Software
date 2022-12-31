@@ -33,7 +33,6 @@ int main()
         }
         else if (strcmp(opcode, "WORD") == 0)
         {
-            len = strlen(operand);
             sprintf(a,"%d",atoi(operand));
             fprintf(fp1, "%d\t%s\t%s\t%s\t00000%s\n", address, label, opcode, operand, a);
         }

@@ -59,7 +59,7 @@ int main()
         }
         else if (strcmp(opcode, "BYTE") == 0)
         {
-            ++locctr;
+            locctr += strlen(operand) - 3;
         }
         fprintf(fp3, "%s\t%s\t%s\n", label, opcode, operand);
         fscanf(fp1, "%s%s%s", label, opcode, operand);
@@ -72,6 +72,5 @@ int main()
     fclose(fp2);
     fclose(fp3);
     fclose(fp4);
-
     return 0;
 }

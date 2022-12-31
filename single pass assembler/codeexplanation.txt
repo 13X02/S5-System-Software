@@ -1,0 +1,52 @@
+
+Line 1: This line tells the computer to include two different libraries, stdio.h and string.h, so that it can use functions from those libraries. 
+
+Line 3: This line creates a structure called optab. It has two sections, mnemonic and opcode.
+
+Line 5: This line tells the computer to start the main function.
+
+Line 7: This line creates three different file pointers, fp1, fp2, and fp3, so that the computer can open three different files.
+
+Line 8: This line creates three different integer variables, i, j, and l, so that the computer can use them in the program.
+
+Line 9: This line creates five different character arrays, name, opnd, la, mne, and obj, so that the computer can store strings in them.
+
+Line 11: This line tells the computer to open the file assembly.txt and store its contents in the file pointer fp1.
+
+Line 12: This line tells the computer to open the file optab.txt and store its contents in the file pointer fp2.
+
+Line 13: This line tells the computer to open the file output.txt and store its contents in the file pointer fp3.
+
+Line 14: This line tells the computer to read the first line in the file optab.txt and store the two parts, mnemonic and opcode, in the first index of the optab structure.
+
+Line 15: This line tells the computer to check if the end of the file optab.txt has been reached. If it hasn't been reached, the computer should continue looping.
+
+Line 16: This line tells the computer to read the next line in the file optab.txt and store the two parts, mnemonic and opcode, in the next index of the optab structure.
+
+Line 18: This line tells the computer to read the first line in the file assembly.txt and store the three parts, la, mne, and opnd, in the respective character arrays.
+
+Line 19: This line tells the computer to check if the mne contains the word START. If it does, the computer should store the opnd in the val character array.
+
+Line 20: This line tells the computer to read the next line in the file assembly.txt and store the three parts, la, mne, and opnd, in the respective character arrays.
+
+Line 21: This line tells the computer to set l to 0.
+
+Line 22: This line tells the computer to loop until l is less than the value of i.
+
+Line 23: This line tells the computer to check if the mne contains one of the mnemonics in the optab structure. If it does, the computer should store the corresponding opcode in the obj character array.
+
+Line 24: This line tells the computer to print the contents of the obj character array, along with the contents of the opnd character array, to the file output.txt.
+
+Line 25: This line tells the computer to store the contents of the opnd character array in the val character array.
+
+Line 26: This line tells the computer to break out of the loop.
+
+Line 27: This line tells the computer to check if the mne contains the word END. If it does, the computer should print the contents of the val character array to the file output.txt.
+
+Line 28: This line tells the computer to break out of the loop.
+
+Line 29: This line tells the computer to read the next line in the file assembly.txt and store the three parts, la, mne, and opnd, in the respective character arrays.
+
+Line 31: This line tells the computer to close the three files.
+
+Line 33: This line tells the computer to end the main function.
