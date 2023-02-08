@@ -26,14 +26,18 @@ int main()
     }
     while (strcmp(opcode, "END") != 0)
     {
+
+        // checking for label
         fprintf(fp3, "%d\t", locctr);
         if (strcmp(label, "**") != 0)
         {
             fprintf(fp2, "%s\t%d\n", label, locctr);
         }
+
+
+        // checking for opcode
         rewind(fp4);
         fscanf(fp4, "%s", code);
-        // checking for opcode
         while (strcmp(code, "END") != 0)
         {
             if (!strcmp(opcode, code))
@@ -59,6 +63,7 @@ int main()
         }
         else if (strcmp(opcode, "BYTE") == 0)
         {
+            
             locctr += strlen(operand) - 3;
         }
         fprintf(fp3, "%s\t%s\t%s\n", label, opcode, operand);

@@ -5,6 +5,7 @@
 #include <string.h>
 void main()
 {
+  
   FILE *f1, *f2, *f3, *f4, *f5;
   int lc, sa, i = 0, j = 0, m[10], pgmlen, len, k, len1, l = 0;
   char name[10], opnd[10], la[10], mne[10], s1[10], mne1[10], opnd1[10];
